@@ -59,7 +59,7 @@ class JSL_dictionary:
                return 0 
 
     def onclick(self, word):
-            # try:
+            try:
                 self.btn['state'] = "disabled"
                 self.canvas.delete("all")
                 url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
@@ -76,8 +76,9 @@ class JSL_dictionary:
                 else:
                     self.btn['state'] = "normal"
                     self.recheck = False
-            # except:
-            #     messagebox.showerror("invalid word", "Try another word")
+            except:
+                messagebox.showerror("invalid word", "Try another word")
+                self.btn['state'] = "normal"
     
     
     def updatedata(self,word):
